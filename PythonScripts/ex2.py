@@ -108,7 +108,6 @@ plt.ylim(yy.min(), yy.max())
 plt.xticks(())
 plt.yticks(())
 
-plt.show()
 
 #Predictions using Fitted Log Reg
 theta0 = logreg.fit(x,y).intercept_
@@ -122,13 +121,6 @@ prob = sp.special.expit(v.dot(w.T))
 
 #Compare prediction against whole data set. Strictly speaking, we
 # should have cross validation and test data sets to compute accuracy
-m = len(y)
-xtest = np.c_[np.ones((m, 1)), X]
-p = np.zeros([m,1])
-q = np.zeros([m,1])
-q = sp.special.expit(xtest.dot(w.T))
-p = q >= 0.5
 
-pres = np.mean(p==y) * 100
-#Result is 89% accuracy
-print('Accuracy =', pres)
+xscore = logreg.score(x,y)
+print('Log reg score/ accuracy', xscore * 100)
