@@ -2,7 +2,6 @@
 """
 Created on Thu Mar 17 23:50:33 2016
 
-@author: pamwong
 """
 import numpy as np
 import scipy as sp
